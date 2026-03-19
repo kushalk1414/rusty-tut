@@ -52,38 +52,35 @@ for event in engine.collision_events.drain(..) {
         game_state.current_score += 10;
         println!("current score:  {}", game_state.current_score)
     }
-
-
-    //movement
-
-    let player = engine.sprites.get_mut("player 1").unwrap();
-    const MOVEMENT_SPEED: f32 = 50.0;
-    if engine
-    .keyboard_state
-    .pressed_any(&[KeyCode::ArrowUp, KeyCode::KeyW]) {
-        player.translation.y += MOVEMENT_SPEED * engine.delta_f32;
-    } 
     
-    else if engine
-    .keyboard_state
-    .pressed_any(&[KeyCode::ArrowDown, KeyCode::KeyS]) {
-        player.translation.y -= MOVEMENT_SPEED * engine.delta_f32;
-    }
-
-    else if engine
-    .keyboard_state
-    .pressed_any(&[KeyCode::ArrowLeft, KeyCode::KeyA]) {
-        player.translation.x -= MOVEMENT_SPEED * engine.delta_f32;
-    }
-
-    else if engine
-    .keyboard_state
-    .pressed_any(&[KeyCode::ArrowRight, KeyCode::KeyD]) {
-        player.translation.x += MOVEMENT_SPEED * engine.delta_f32;
-    }
-
-
-
 }
+//movement
+
+let player = engine.sprites.get_mut("player 1").unwrap();
+const MOVEMENT_SPEED: f32 = 100.0;
+if engine
+.keyboard_state
+.pressed_any(&[KeyCode::ArrowUp, KeyCode::KeyW]) {
+    player.translation.y += MOVEMENT_SPEED * engine.delta_f32;
+} 
+
+else if engine
+.keyboard_state
+.pressed_any(&[KeyCode::ArrowDown, KeyCode::KeyS]) {
+    player.translation.y -= MOVEMENT_SPEED * engine.delta_f32;
+}
+
+else if engine
+.keyboard_state
+.pressed_any(&[KeyCode::ArrowLeft, KeyCode::KeyA]) {
+    player.translation.x -= MOVEMENT_SPEED * engine.delta_f32;
+}
+
+else if engine
+.keyboard_state
+.pressed_any(&[KeyCode::ArrowRight, KeyCode::KeyD]) {
+    player.translation.x += MOVEMENT_SPEED * engine.delta_f32;
+}
+
     
 }
